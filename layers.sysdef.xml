@@ -7,7 +7,7 @@
 	<systemModel>
       	<layer name="mw_layer">
     		<module name="platformthemes">
-    			<unit name="platformthemes" unitID="qtdo.platformthemes" bldFile="&layer_real_source_path;" mrp="" proFile="themes.pro"/>
+    			<unit name="platformthemes" unitID="qtdo.platformthemes" bldFile="&layer_real_source_path;" mrp="" proFile="platformthemes.pro"/>
     		</module>
         </layer>
     </systemModel>

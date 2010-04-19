@@ -1,0 +1,55 @@
+/* Application specific color groups */
+
+
+@variables
+{
+/* Application specific - Conversational list */ 
+qtc_conv_list_received_normal:#505050; /* Modified 05.02.2010 */
+qtc_conv_list_received_pressed:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_received_highlight:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_sent_normal:#505050; /* Modified 05.02.2010 */
+qtc_conv_list_sent_pressed:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_sent_highlight:#FFFFFF; /* Modified 05.02.2010 */
+
+/* Application specific - Calendar */ 
+qtc_cal_grid_line:#DCDCDC; /* Added 05.02.2010 */
+qtc_cal_month_highlighted_text:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_month_active_dates:#505050; /* Added 05.02.2010 */
+qtc_cal_month_notactive_dates:#A0A0A0; /* Added 05.02.2010 */
+qtc_cal_month_current_day:#66CCAD; /* Added 05.02.2010 */
+qtc_cal_week_day:#505050; /* Added 05.02.2010 */
+qtc_cal_day_preview_heading:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_day_preview_text:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_day_hour_lines:#505050; /* Added 05.02.2010 */
+qtc_cal_monthgrid_title:#FFFFFF; /* Added 05.02.2010 */
+
+/* Application specific - Call handling */ 
+qtc_callhandling_answer_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_answer_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_answer_highlight:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_reject_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_reject_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_reject_highlight:#FFFFFF; /* Added 05.02.2010 */
+
+/* Application specific - Home screen */ 
+qtc_hs_list_item_title_normal:#505050; /* Added 05.02.2010 */
+qtc_hs_list_item_content_normal:#519FB9; /* Added 05.02.2010 */
+qtc_hs_list_item_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_hs_list_item_highlight:#FFFFFF; /* Added 05.02.2010 */
+
+/* Application specific - Messaging */
+qtc_messaging_heading:#3C3C3C; /* Added 05.02.2010 */
+
+/* Application specific - Radio & Calculator */ 
+qtc_lcd_title_normal:#505050; /* Added 11.02.2010 */
+qtc_lcd_content_normal:#519FB9; /* Added 11.02.2010 */
+qtc_lcd_link_normal:#33C8FF; /* Added 22.02.2010 */
+qtc_radio_tuner_normal:#505050; /* Added 05.02.2010 */
+qtc_radio_tuner_line:#3C3C3C; /* Added 05.02.2010 */
+
+/* Application specific - Multimedia */ 
+qtc_multimedia_trans:#FFFFFF; /* Modified 19.02.2010 */
+qtc_multimedia_trans_pressed:#FFFFFF; /* Added 19.02.2010 */
+
+}
+

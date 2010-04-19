@@ -1,5 +1,3 @@
-/* Color definitions for SF Black Reference Theme */
-
 @variables
 {
 /* Default palette */
@@ -28,10 +26,10 @@ qtc_title_pane_trans_normal:#FFFFFF;
 qtc_title_pane_trans_pressed:#FFFFFF;
 qtc_title_pane_trans_highlight:#FFFFFF;
 qtc_title_pane_trans_latched:#FFFFFF;
+qtc_status_pane:#FFFFFF; /* Added 05.02.2010 */
+qtc_status_pane_trans:#FFFFFF; /* Added 05.02.2010 */
 
 /* Main area - View */
-qtc_status_pane:#FFFFFF;
-qtc_status_pane_trans:#FFFFFF;
 qtc_view_normal:#FFFFFF;
 qtc_view_pressed:#FFFFFF;
 qtc_view_line_normal:#FFFFFF;
@@ -42,38 +40,66 @@ qtc_view_separator_normal:#9B9B9B;
 /* Main area - View title */
 qtc_viewtitle_normal:#E6E6E6;
 
-/* Main area - Tab */
+/* Main area - Tab */ 
 qtc_tab_active_normal:#FFFFFF;
 qtc_tab_passive_normal:#FFFFFF;
-qtc_tab_passive_pressed:#FFFFFF;
+qtc_tab_passive_Pressed:#FFFFFF;
 
-/* Main area - Grid */
+/* Main area - Grid */ 
 qtc_grid_normal:#DCDCDC;
 qtc_grid_pressed:#FFFFFF;
 qtc_grid_highlight:#FFFFFF;
-qtc_grid_latched:#FFFFFF;
+qtc_grid_latched:#FFFFFF; /* Added 05.02.2010 */
+qtg_grid_disabled:#9B9B9B; /* Added 15.02.2010 */
 
-/* Main area - List */
-qtc_list_item_title_normal:#FFFFFF;
+/* Main area - List */ 
+qtc_list_item_title_normal:#FFFFFF; /* Modified 19.02.2010 */
 qtc_list_item_content_normal:#F0F0F0;
 qtc_list_item_parent_normal:#F0F0F0;
 qtc_list_item_pressed:#FFFFFF;
 qtc_list_item_highlight:#FFFFFF;
 qtc_list_item_disabled:#9B9B9B;
-qtc_list_item_latched:#FFFFFF;
+qtc_list_item_latched:#FFFFFF; /* Added 05.02.2010 */
+qtc_list_item_separator:#FFFFFF; /* Added 22.02.2010 */
 
-/* Main area - Button */
+/* Button */ 
 qtc_button_normal:#FFFFFF;
 qtc_button_pressed:#FFFFFF;
 qtc_button_latched:#FFFFFF;
 qtc_button_highlight:#FFFFFF;
 qtc_button_disabled:#9B9B9B;
 
-/* Main area - Editor */
-qtc_editor_normal:#FFFFFF;
-qtc_editor_selected:#FFFFFF;
-qtc_editor_marker_normal:#4D4D4D;
-qtc_editor_hint_normal:#F0F0F0;
+/* LineEdit */ 
+qtc_lineedit_normal:#FFFFFF;
+qtc_lineedit_selected:#FFFFFF;
+qtc_lineedit_marker_normal:#4D4D4D;
+qtc_lineedit_hint_normal:#F0F0F0;
+
+/* Combobox */ 
+qtc_combobox_normal:#FFFFFF;
+qtc_combobox_pressed:#FFFFFF;
+qtc_combobox_highlight:#FFFFFF;
+qtc_combobox_disabled:#9B9B9B;
+qtc_combobox_edit:#4D4D4D;
+qtc_combobox_latched:#FFFFFF; /* Added 05.02.2010 */
+
+/* Tumbler */
+qtc_tumbler_normal:#FFFFFF;
+qtc_tumbler_selected:#FFFFFF;
+qtc_tumbler_highlight:#FFFFFF;
+
+/* Main area - DataForm */
+qtc_dataform_value:#FFFFFF; /* Added 08.02.2010 */
+
+/* Main area - ProgressSlider */
+qtc_progslider_normal:#FFFFFF; /* Added 09.02.2010 */
+qtc_progslider_pressed:#FFFFFF; /* Added 09.02.2010 */
+
+/* Main area - Text edit */ 
+qtc_textedit_normal:#FFFFFF; /* Added 17.02.2010 */
+qtc_textedit_selected:#FFFFFF; /* Added 17.02.2010 */
+qtc_textedit_marker_normal:#4D4D4D; /* Added 17.02.2010 */
+qtc_textedit_hint_normal:#F0F0F0; /* Added 17.02.2010 */
 
 /* Main area - Toolbar */
 qtc_toolbar_normal:#FFFFFF;
@@ -87,22 +113,19 @@ qtc_toolbar_trans_latched:#FFFFFF;
 qtc_toolbar_trans_disabled:#9B9B9B;
 qtc_toolbar_trans_highlight:#FFFFFF;
 
-/* Main area - Toolbar extension */
-
 /* Main area - Groupbox */
 qtc_groupbox_normal:#FFFFFF;
 qtc_groupbox_pressed:#FFFFFF;
 qtc_groupbox_highlight:#FFFFFF;
 
-/* Pop-ups - Generic pop-up */
+/* Pop-ups - Generic pop-up */ 
 qtc_popup_sk_normal:#FFFFFF;
 qtc_popup_sk_highlight:#FFFFFF;
 qtc_popup_sk_pressed:#FFFFFF;
-qtc_popup_sk_disabled:#9B9B9B;
+qtc_popup_sk_disabled:#9B9B9B; /* Added 05.02.2010 */
 qtc_popup_heading_normal:#FFFFFF;
-qtc_popup_heading_pressed:#FFFFFF;
-qtc_popup_heading_highlight:#FFFFFF;
 qtc_popup_normal:#B5B5B5;
+qtc_popup_link:#33C8FF; /* Added 16.02.2010 */
 
 /* Pop-ups - Preview pop-up */
 qtc_popup_preview_normal:#FFFFFF;
@@ -114,88 +137,85 @@ qtc_popup_trans_normal:#FFFFFF;
 qtc_popup_trans_pressed:#F0F0F0;
 qtc_popup_trans_link:#33C8FF;
 
-/* Pop-ups - Grid in a pop-up */
+/* Pop-ups - Grid in a pop-up */ 
 qtc_popup_grid_normal:#FFFFFF;
 qtc_popup_grid_pressed:#FFFFFF; 
 qtc_popup_grid_highlight:#FFFFFF;
 qtc_popup_grid_disabled:#9B9B9B;
-qtc_popup_grid_latched:#FFFFFF;
-qtc_popup_grid_trans_normal:#FFFFFF;
-qtc_popup_grid_trans_pressed:#FFFFFF;
+qtc_popup_grid_latched:#FFFFFF; /* Added 05.02.2010 */
+qtc_popup_grid_trans_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_popup_grid_trans_pressed:#FFFFFF; /* Added 05.02.2010 */
 
-/* Pop-ups - List in a pop-up */
+/* Pop-ups - List in a pop-up */ 
 qtc_popup_list_title_normal:#FFFFFF;
 qtc_popup_list_item_content_normal:#FFFFFF;
 qtc_popup_list_item_parent_normal:#FFFFFF;
 qtc_popup_list_item_pressed:#FFFFFF;
 qtc_popup_list_item_highlight:#FFFFFF;
 qtc_popup_list_item_disabled:#9B9B9B;
-qtc_popup_list_item_latched:#FFFFFF;
+qtc_popup_list_item_latched:#FFFFFF; /* Added 05.02.2010 */
 
-/* Pop-ups - Combobox */
-qtc_combobox_normal:#FFFFFF;
-qtc_combobox_pressed:#FFFFFF;
-qtc_combobox_highlight:#FFFFFF;
-qtc_combobox_disabled:#9B9B9B;
-qtc_combobox_edit:#4D4D4D;
-qtc_combobox_latched:#FFFFFF;
+/* Virtual inputs */ 
+qtc_input_button_normal:#FFFFFF; /* Modified 19.02.2010 */
+qtc_input_button_accented_normal:#FFFFFF; /* Added 22.02.2010 */
+qtc_input_button_pressed:#FFFFFF; /* Modified 19.02.2010 */
+qtc_input_button_latched:#FFFFFF; /* Modified 19.02.2010 */
+qtc_input_button_disabled:#9B9B9B; /* Modified 19.02.2010 */
+qtc_input_function_normal:#FFFFFF; /* Modified 19.02.2010 */
+qtc_input_function_pressed:#FFFFFF; /* Modified 19.02.2010 */
+qtc_input_function_latched:#FFFFFF; /* Modified 19.02.2010 */
+qtc_input_function_disabled:#9B9B9B; /* Modified 19.02.2010 */
+qtc_input_preview_normal:#FFFFFF; /* Modified 22.02.2010 */
 
-/* Virtual inputs */
-qtc_input_button_normal:#FFFFFF;
-qtc_input_button_pressed:#FFFFFF;
-qtc_input_button_latched:#FFFFFF;
-qtc_input_button_disabled:#9B9B9B;
-qtc_input_function_normal:#FFFFFF;
-qtc_input_function_pressed:#FFFFFF;
-qtc_input_function_latched:#FFFFFF;
-qtc_input_function_disabled:#9B9B9B;
-qtc_input_title_normal:#FFFFFF;
+/* Application specific color groups */
 
-/* Application specific - Conversational list */
-qtc_conv_received_normal:#B5B5B5;
-qtc_conv_received_pressed:#B5B5B5;
-qtc_conv_received_highlight:#FFFFFF;
-qtc_conv_sent_normal:#B5B5B5;
-qtc_conv_sent_pressed:#B5B5B5;
-qtc_conv_sent_highlight:#FFFFFF;
+/* Application specific - Conversational list */ 
+qtc_conv_list_received_normal:#B5B5B5; /* Modified 05.02.2010 */
+qtc_conv_list_received_pressed:#B5B5B5; /* Modified 05.02.2010 */
+qtc_conv_list_received_highlight:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_sent_normal:#B5B5B5; /* Modified 05.02.2010 */
+qtc_conv_list_sent_pressed:#B5B5B5; /* Modified 05.02.2010 */
+qtc_conv_list_sent_highlight:#FFFFFF; /* Modified 05.02.2010 */
 
-/* Application specific - Tumbler */
-qtc_tumbler_normal:#FFFFFF;
-qtc_tumbler_selected:#FFFFFF;
-qtc_tumbler_highlight:#FFFFFF;
+/* Application specific - Calendar */ 
+qtc_cal_grid_line:#8E8E8E; /* Added 05.02.2010 */
+qtc_cal_month_highlighted_text:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_month_active_dates:#E5E5E5; /* Added 05.02.2010 */
+qtc_cal_month_notactive_dates:#9B9B9B; /* Added 05.02.2010 */
+qtc_cal_month_current_day:#00BAFF; /* Added 05.02.2010 */
+qtc_cal_week_day:#00BAFF; /* Added 05.02.2010 */
+qtc_cal_day_preview_heading:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_day_preview_text:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_day_hour_lines:#8E8E8E; /* Added 05.02.2010 */
+qtc_cal_monthgrid_title:#FFFFFF; /* Added 05.02.2010 */
 
-/* Application specific - Calendar */
-qtc_cal_grid_line:#8E8E8E;
-qtc_cal_month_highlighted_text:#FFFFFF;
-qtc_cal_month_active_dates:#E5E5E5;
-qtc_cal_month_notactive_dates:#9B9B9B;
-qtc_cal_month_current_day:#00BAFF;
-qtc_cal_week_day:#00BAFF;
-qtc_cal_day_preview_heading:#FFFFFF;
-qtc_cal_day_preview_text:#FFFFFF;
-qtc_cal_day_hour_lines:#8E8E8E;
-qtc_cal_monthgrid_title:#FFFFFF;
+/* Application specific - Call handling */ 
+qtc_callhandling_answer_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_answer_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_answer_highlight:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_reject_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_reject_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_callhandling_reject_highlight:#FFFFFF; /* Added 05.02.2010 */
 
-qtc_callhandling_answer_normal:#FFFFFF;
-qtc_callhandling_answer_pressed:#FFFFFF;
-qtc_callhandling_answer_highlight:#FFFFFF;
-qtc_callhandling_reject_normal:#FFFFFF;
-qtc_callhandling_reject_pressed:#FFFFFF;
-qtc_callhandling_reject_highlight:#FFFFFF;
+/* Application specific - Home screen */ 
+qtc_hs_list_item_title_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_hs_list_item_content_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_hs_list_item_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_hs_list_item_highlight:#FFFFFF; /* Added 05.02.2010 */
 
-qtc_hs_list_item_title_normal:#FFFFFF;
-qtc_hs_list_item_content_normal:#FFFFFF;
-qtc_hs_list_item_pressed:#FFFFFF;
-qtc_hs_list_item_highlight:#FFFFFF;
+/* Application specific - Messaging */ 
+qtc_messaging_heading:#FFFFFF; /* Added 05.02.2010 */
 
-qtc_messaging_heading:#FFFFFF;
+/* Application specific - Radio & Calculator */ 
+qtc_lcd_title_normal:#FFFFFF; /* Added 11.02.2010 */
+qtc_lcd_content_normal:#FFFFFF; /* Added 11.02.2010 */
+qtc_lcd_link_normal:#33C8FF; /* Added 22.02.2010 */
+qtc_radio_tuner_normal:#FFFFFF; /* Added 05.02.2010 */
+qtc_radio_tuner_line:#FFFFFF; /* Added 05.02.2010 */
 
-qtc_radio_title_normal:#FFFFFF;
-qtc_radio_content_normal:#FFFFFF;
-qtc_radio_tuner_normal:#FFFFFF;
-qtc_radio_tuner_line:#FFFFFF;
-
-qtc_multimedia_popup_trans:#FFFFFF;
+/* Application specific - Multimedia */ 
+qtc_multimedia_trans:#FFFFFF; /* Modified 19.02.2010 */
+qtc_multimedia_trans_pressed:#FFFFFF; /* Added 19.02.2010 */
 
 /* Deprecated compatibility mappings */
 default_decor_normal:var(qtc_default_decor_normal);
@@ -328,5 +348,6 @@ testforground_state5:#010101;
 testforground_state5:#020202;
 my_widget_background_pressed:#ff0000;
 my_widget_background_notpressed:#0000ff;
+
 }
 
