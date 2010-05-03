@@ -1,5 +1,10 @@
+/* Widget color groups */
+
+
 @variables
 {
+
+
 /* Default palette */
 qtc_default_decor_normal:#FFFFFF;
 qtc_default_decor_pressed:#FFFFFF;
@@ -50,7 +55,7 @@ qtc_grid_normal:#DCDCDC;
 qtc_grid_pressed:#FFFFFF;
 qtc_grid_highlight:#FFFFFF;
 qtc_grid_latched:#FFFFFF; /* Added 05.02.2010 */
-qtg_grid_disabled:#9B9B9B; /* Added 15.02.2010 */
+qtc_grid_disabled:#9B9B9B; /* Modified 01.03.2010 */
 
 /* Main area - List */ 
 qtc_list_item_title_normal:#FFFFFF; /* Modified 19.02.2010 */
@@ -89,7 +94,8 @@ qtc_tumbler_selected:#FFFFFF;
 qtc_tumbler_highlight:#FFFFFF;
 
 /* Main area - DataForm */
-qtc_dataform_value:#FFFFFF; /* Added 08.02.2010 */
+qtc_dataform_heading:#FFFFFF; /* Added 04.03.2010 */
+qtc_dataform_heading_link:#33C8FF; /* Added 22.03.2010 */
 
 /* Main area - ProgressSlider */
 qtc_progslider_normal:#FFFFFF; /* Added 09.02.2010 */
@@ -144,7 +150,6 @@ qtc_popup_grid_highlight:#FFFFFF;
 qtc_popup_grid_disabled:#9B9B9B;
 qtc_popup_grid_latched:#FFFFFF; /* Added 05.02.2010 */
 qtc_popup_grid_trans_normal:#FFFFFF; /* Added 05.02.2010 */
-qtc_popup_grid_trans_pressed:#FFFFFF; /* Added 05.02.2010 */
 
 /* Pop-ups - List in a pop-up */ 
 qtc_popup_list_title_normal:#FFFFFF;
@@ -154,6 +159,7 @@ qtc_popup_list_item_pressed:#FFFFFF;
 qtc_popup_list_item_highlight:#FFFFFF;
 qtc_popup_list_item_disabled:#9B9B9B;
 qtc_popup_list_item_latched:#FFFFFF; /* Added 05.02.2010 */
+qtc_popup_list_item_trans_normal:#FFFFFF; /* Added 12.02.2010 */
 
 /* Virtual inputs */ 
 qtc_input_button_normal:#FFFFFF; /* Modified 19.02.2010 */
@@ -166,8 +172,9 @@ qtc_input_function_pressed:#FFFFFF; /* Modified 19.02.2010 */
 qtc_input_function_latched:#FFFFFF; /* Modified 19.02.2010 */
 qtc_input_function_disabled:#9B9B9B; /* Modified 19.02.2010 */
 qtc_input_preview_normal:#FFFFFF; /* Modified 22.02.2010 */
+qtc_input_hint_normal:#F0F0F0; /* Added 05.03.2010 */
+qtc_input_grid_line:#9B9B9B; /* Added 12.03.2010 */
 
-/* Application specific color groups */
 
 /* Application specific - Conversational list */ 
 qtc_conv_list_received_normal:#B5B5B5; /* Modified 05.02.2010 */
@@ -176,6 +183,7 @@ qtc_conv_list_received_highlight:#FFFFFF; /* Modified 05.02.2010 */
 qtc_conv_list_sent_normal:#B5B5B5; /* Modified 05.02.2010 */
 qtc_conv_list_sent_pressed:#B5B5B5; /* Modified 05.02.2010 */
 qtc_conv_list_sent_highlight:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_dimmed:#9B9B9B; /* Added 26.03.2010 */
 
 /* Application specific - Calendar */ 
 qtc_cal_grid_line:#8E8E8E; /* Added 05.02.2010 */
@@ -202,9 +210,8 @@ qtc_hs_list_item_title_normal:#FFFFFF; /* Added 05.02.2010 */
 qtc_hs_list_item_content_normal:#FFFFFF; /* Added 05.02.2010 */
 qtc_hs_list_item_pressed:#FFFFFF; /* Added 05.02.2010 */
 qtc_hs_list_item_highlight:#FFFFFF; /* Added 05.02.2010 */
-
-/* Application specific - Messaging */ 
-qtc_messaging_heading:#FFFFFF; /* Added 05.02.2010 */
+qtc_hs_badge:#FFFFFF;  /* Added 01.03.2010 */
+qtc_hs_cal:#000000; /* Added 18.03.2010 */
 
 /* Application specific - Radio & Calculator */ 
 qtc_lcd_title_normal:#FFFFFF; /* Added 11.02.2010 */
@@ -216,138 +223,7 @@ qtc_radio_tuner_line:#FFFFFF; /* Added 05.02.2010 */
 /* Application specific - Multimedia */ 
 qtc_multimedia_trans:#FFFFFF; /* Modified 19.02.2010 */
 qtc_multimedia_trans_pressed:#FFFFFF; /* Added 19.02.2010 */
+qtc_multimedia_trans_disabled:#9B9B9B; /* Added 09.03.2010 */
 
-/* Deprecated compatibility mappings */
-default_decor_normal:var(qtc_default_decor_normal);
-default_decor_pressed:var(qtc_default_decor_pressed);
-default_decor_latched:var(qtc_default_decor_latched);
-default_decor_highlight:var(qtc_default_decor_highlight);
-default_decor_disabled:var(qtc_default_decor_disabled);
-default_main_pane_normal:var(qtc_default_main_pane_normal);
-default_main_pane_pressed:var(qtc_default_main_pane_pressed);
-default_main_pane_latched:var(qtc_default_main_pane_latched);
-default_main_pane_highlight:var(qtc_default_main_pane_highlight);
-default_main_pane_disabled:var(qtc_default_main_pane_disabled);
-default_popup_normal:var(qtc_default_popup_normal);
-default_popup_pressed:var(qtc_default_popup_pressed);
-default_popup_latched:var(qtc_default_popup_latched);
-default_popup_highlight:var(qtc_default_popup_highlight);
-default_popup_disabled:var(qtc_default_popup_disabled);
-title_pane_normal:var(qtc_title_pane_normal);
-title_pane_pressed:var(qtc_title_pane_pressed);
-title_pane_highlight:var(qtc_title_pane_highlight);
-title_pane_latched:var(qtc_title_pane_latched);
-title_pane_trans_normal:var(qtc_title_pane_trans_normal);
-title_pane_trans_pressed:var(qtc_title_pane_trans_pressed);
-title_pane_trans_highlight:var(qtc_title_pane_trans_highlight);
-title_pane_trans_latched:var(qtc_title_pane_trans_latched);
-view_normal:var(qtc_view_normal);
-view_pressed:var(qtc_view_pressed);
-view_line_normal:var(qtc_view_line_normal);
-view_link_normal:var(qtc_view_link_normal);
-view_visited_normal:var(qtc_view_visited_normal);
-view_separator_normal:var(qtc_view_separator_normal);
-viewtitle_normal:var(qtc_viewtitle_normal);
-tab_active_normal:var(qtc_tab_active_normal);
-tab_passive_normal:var(qtc_tab_passive_normal);
-tab_passive_pressed:var(qtc_tab_passive_pressed);
-grid_normal:var(qtc_grid_normal);
-grid_pressed:var(qtc_grid_pressed);
-grid_highlight:var(qtc_grid_highlight);
-list_item_title_normal:var(qtc_list_item_title_normal);
-list_item_content_normal:var(qtc_list_item_content_normal);
-list_item_parent_normal:var(qtc_list_item_parent_normal);
-list_item_pressed:var(qtc_list_item_pressed);
-list_item_highlight:var(qtc_list_item_highlight);
-list_item_disabled:var(qtc_list_item_disabled);
-button_normal:var(qtc_button_normal);
-button_pressed:var(qtc_button_pressed);
-button_latched:var(qtc_button_latched);
-button_highlight:var(qtc_button_highlight);
-button_disabled:var(qtc_button_disabled);
-editor_normal:var(qtc_editor_normal);
-editor_selected:var(qtc_editor_selected);
-editor_marker_normal:var(qtc_editor_marker_normal);
-editor_hint_normal:var(qtc_editor_hint_normal);
-toolbar_normal:var(qtc_toolbar_normal);
-toolbar_pressed:var(qtc_toolbar_pressed);
-toolbar_latched:var(qtc_toolbar_latched);
-toolbar_disabled:var(qtc_toolbar_disabled);
-toolbar_highlight:var(qtc_toolbar_highlight);
-toolbar_trans_normal:var(qtc_toolbar_trans_normal);
-toolbar_trans_pressed:var(qtc_toolbar_trans_pressed);
-toolbar_trans_latched:var(qtc_toolbar_trans_latched);
-toolbar_trans_disabled:var(qtc_toolbar_trans_disabled);
-toolbar_trans_highlight:var(qtc_toolbar_trans_highlight);
-groupbox_normal:var(qtc_groupbox_normal);
-groupbox_pressed:var(qtc_groupbox_pressed);
-groupbox_highlight:var(qtc_groupbox_highlight);
-popup_sk_normal:var(qtc_popup_sk_normal);
-popup_sk_highlight:var(qtc_popup_sk_highlight);
-popup_sk_pressed:var(qtc_popup_sk_pressed);
-popup_heading_normal:var(qtc_popup_heading_normal);
-popup_heading_pressed:var(qtc_popup_heading_pressed);
-popup_heading_highlight:var(qtc_popup_heading_highlight);
-popup_normal:var(qtc_popup_normal);
-popup_preview_normal:var(qtc_popup_preview_normal);
-popup_preview_pressed:var(qtc_popup_preview_pressed);
-popup_preview_link:var(qtc_popup_preview_link);
-popup_trans_normal:var(qtc_popup_trans_normal);
-popup_trans_pressed:var(qtc_popup_trans_pressed);
-popup_trans_link:var(qtc_popup_trans_link);
-popup_grid_normal:var(qtc_popup_grid_normal);
-popup_grid_pressed:var(qtc_popup_grid_pressed); 
-popup_grid_highlight:var(qtc_popup_grid_highlight);
-popup_grid_disabled:var(qtc_popup_grid_disabled);
-popup_list_title_normal:var(qtc_popup_list_title_normal);
-popup_list_item_content_normal:var(qtc_popup_list_item_content_normal);
-popup_list_item_parent_normal:var(qtc_popup_list_item_parent_normal);
-popup_list_item_pressed:var(qtc_popup_list_item_pressed);
-popup_list_item_highlight:var(qtc_popup_list_item_highlight);
-popup_list_item_disabled:var(qtc_popup_list_item_disabled);
-combobox_normal:var(qtc_combobox_normal);
-combobox_pressed:var(qtc_combobox_pressed);
-combobox_highlight:var(qtc_combobox_highlight);
-combobox_disabled:var(qtc_combobox_disabled);
-combobox_edit:var(qtc_combobox_edit);
-input_button_normal:var(qtc_input_button_normal);
-input_button_pressed:var(qtc_input_button_pressed);
-input_button_latched:var(qtc_input_button_latched);
-input_button_disabled:var(qtc_input_button_disabled);
-input_function_normal:var(qtc_input_function_normal);
-input_function_pressed:var(qtc_input_function_pressed);
-input_function_latched:var(qtc_input_function_latched);
-input_function_disabled:var(qtc_input_function_disabled);
-input_title_normal:var(qtc_input_title_normal);
-
-/* Deprecated legacy variables */
-/* Old color roles used for RnD */
-foreground:#FFFFFF;
-popupbackground:#000000;
-popupforeground:#FFFFFF;
-menubackground:#000000;
-menuforeground_enabled:#FFFFFF;
-menuforeground_disabled:#9B9B9B;
-toolbuttonforeground_enabled:#FFFFFF;
-toolbuttonforeground_disabled:#9B9B9B;
-slider_ticktext_color:#FFFFFF;
-
-/* Unclear cases - consider deprecated */
-list_item_separator_normal:#4d4d4d;
-qtc_checkbox_normal:#000000;
-qtc_checkbox_disabled:#a0a0a4;
-qtc_popup_trans:#000000;
-
-/* Deprecated autotest variables */
-testforeground:#010101;
-testforeground_focused:#010101;
-testforeground_nonfocused:#000000;
-testforeground_enabled:#000000;
-testforeground_disabled:#000000;
-testforground_state5:#010101;
-testforground_state5:#020202;
-my_widget_background_pressed:#ff0000;
-my_widget_background_notpressed:#0000ff;
 
 }
-

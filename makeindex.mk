@@ -25,8 +25,7 @@ RESOURCE : do_nothing
 
 SAVESPACE : do_nothing
 
-BLD :
-	-$(MAKE) index
+BLD : do_nothing
 
 FREEZE : do_nothing
 
@@ -34,7 +33,8 @@ LIB : do_nothing
 
 CLEANLIB : do_nothing
 
-FINAL : do_nothing
+FINAL :
+	-$(MAKE) index
 
 CLEAN : do_nothing
 

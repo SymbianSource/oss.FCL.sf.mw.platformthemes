@@ -10,6 +10,7 @@ qtc_conv_list_received_highlight:#FFFFFF; /* Modified 05.02.2010 */
 qtc_conv_list_sent_normal:#505050; /* Modified 05.02.2010 */
 qtc_conv_list_sent_pressed:#FFFFFF; /* Modified 05.02.2010 */
 qtc_conv_list_sent_highlight:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_dimmed:#787878; /* Added 26.03.2010 */
 
 /* Application specific - Calendar */ 
 qtc_cal_grid_line:#DCDCDC; /* Added 05.02.2010 */
@@ -36,9 +37,8 @@ qtc_hs_list_item_title_normal:#505050; /* Added 05.02.2010 */
 qtc_hs_list_item_content_normal:#519FB9; /* Added 05.02.2010 */
 qtc_hs_list_item_pressed:#FFFFFF; /* Added 05.02.2010 */
 qtc_hs_list_item_highlight:#FFFFFF; /* Added 05.02.2010 */
-
-/* Application specific - Messaging */
-qtc_messaging_heading:#3C3C3C; /* Added 05.02.2010 */
+qtc_hs_badge:#FFFFFF; /* Added 01.03.2010 */
+qtc_hs_cal:#3C3C3C; /* Added 18.03.2010 */
 
 /* Application specific - Radio & Calculator */ 
 qtc_lcd_title_normal:#505050; /* Added 11.02.2010 */
@@ -50,6 +50,6 @@ qtc_radio_tuner_line:#3C3C3C; /* Added 05.02.2010 */
 /* Application specific - Multimedia */ 
 qtc_multimedia_trans:#FFFFFF; /* Modified 19.02.2010 */
 qtc_multimedia_trans_pressed:#FFFFFF; /* Added 19.02.2010 */
-
+qtc_multimedia_trans_disabled:#787878; /* Added 09.03.2010 */
 }
 

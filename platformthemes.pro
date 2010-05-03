@@ -58,9 +58,7 @@ ARGS += --exclude \"*distribution.policy.s60\"
 }
 
 *symbian* {
-    # NOTE: temporarily disabled due to:
-    #       "Qt: INTERNALL ERROR: failed to install GetMessage hook"
-    # BLD_INF_RULES.prj_mmpfiles += "gnumakefile makeindex.mk"
+    BLD_INF_RULES.prj_mmpfiles += "gnumakefile makeindex.mk"
 
     install.depends = default
     uninstall.depends = cleanexport
