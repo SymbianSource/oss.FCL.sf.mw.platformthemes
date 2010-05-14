@@ -35,7 +35,7 @@ ARGS += --exclude \"*distribution.policy.s60\"
 }
 
 *symbian* {
-    THEMEINDEXER = bin\themeindexer_symbian.exe
+    THEMEINDEXER = bin\hbthemeindexer_symbian.exe
 } else {
 
     win32:!win32-g++ {
@@ -51,9 +51,9 @@ ARGS += --exclude \"*distribution.policy.s60\"
     } else {
         DEVNULL = nul
     }
-    THEMEINDEXER = themeindexer
+    THEMEINDEXER = hbthemeindexer
     !system($$THEMEINDEXER > $$DEVNULL 2>&1) {
-        error('themeindexer' must be in PATH.)
+        error('hbthemeindexer' must be in PATH.)
     }
 }
 
@@ -63,6 +63,11 @@ ARGS += --exclude \"*distribution.policy.s60\"
     install.depends = default
     uninstall.depends = cleanexport
     QMAKE_EXTRA_TARGETS += install uninstall
+
+    # central repository
+    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/data/z/private/10202BE9/20022E82.txt"
+    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/release/winscw/udeb/z/private/10202BE9/20022E82.txt"
+    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/release/winscw/urel/z/private/10202BE9/20022E82.txt"
 }
 index.path = .
 index.commands = $$THEMEINDEXER -f $$OUT_PWD/src/$${NAME}.txt
