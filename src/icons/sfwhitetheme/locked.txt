@@ -1,5 +1,0 @@
-qtg_large_bluetooth
-qtg_large_flash
-qtg_large_ovi_suite
-qtg_large_ovistore
-qtg_large_realplayer
