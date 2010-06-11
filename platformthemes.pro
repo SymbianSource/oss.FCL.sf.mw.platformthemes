@@ -1,17 +1,19 @@
 #
-# Copyright (c) 2008-2010 Nokia Corporation and/or its subsidiary(-ies).
-# All rights reserved.
-# This component and the accompanying materials are made available
-# under the terms of "Eclipse Public License v1.0"
-# which accompanies this distribution, and is available
-# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+# ============================================================================
+#  Name        : platformthemes.pro
+#  Part of     : platformthemes
+#  Description : Project definition file for project platformthemes
+#  Version     : %version: %
 #
-# Initial Contributors:
-# Nokia Corporation - initial contribution.
-#
-# Contributors:
-#
-# Description:  Project definition file for project platformthemes
+#  Copyright (c) 2008-2010 Nokia.  All rights reserved.
+#  This material, including documentation and any related computer
+#  programs, is protected by copyright controlled by Nokia.  All
+#  rights are reserved.  Copying, including reproducing, storing,
+#  adapting or translating, any or all of this material requires the
+#  prior written consent of Nokia.  This material also contains
+#  confidential information which may not be disclosed to others
+#  without the prior written consent of Nokia.
+# ============================================================================
 #
 
 NAME = platformthemes
@@ -30,17 +32,18 @@ TEMPLATE = subdirs
 }
 ARGS += -v --input $$IN_PWD/src --output $$OUT_PWD/src --name $$NAME
 ARGS += --exclude \"*distribution.policy.s60\"
+ARGS += --exclude \"*.orig\"
 !system(python $$IN_PWD/bin/sync.py $$ARGS) {
     error(*** bin/sync.py reported an error. Stop.)
 }
 
-*symbian* {
-    THEMEINDEXER = bin\hbthemeindexer_symbian.exe
-} else {
-
+THEMEINDEXER = hbthemeindexer
+!symbian {
     win32:!win32-g++ {
         unixstyle = false
     } else:win32-g++:isEmpty(QMAKE_SH) {
+        unixstyle = false
+    } else:symbian {
         unixstyle = false
     } else {
         unixstyle = true
@@ -51,7 +54,7 @@ ARGS += --exclude \"*distribution.policy.s60\"
     } else {
         DEVNULL = nul
     }
-    THEMEINDEXER = hbthemeindexer
+
     !system($$THEMEINDEXER > $$DEVNULL 2>&1) {
         error('hbthemeindexer' must be in PATH.)
     }
@@ -64,10 +67,10 @@ ARGS += --exclude \"*distribution.policy.s60\"
     uninstall.depends = cleanexport
     QMAKE_EXTRA_TARGETS += install uninstall
 
-    # central repository
-    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/data/z/private/10202BE9/20022E82.txt"
-    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/release/winscw/udeb/z/private/10202BE9/20022E82.txt"
-    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/release/winscw/urel/z/private/10202BE9/20022E82.txt"
+    # central repository - exporting removed from platformthemes
+#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/data/z/private/10202BE9/20022E82.txt"
+#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/release/winscw/udeb/z/private/10202BE9/20022E82.txt"
+#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/centralrepository/20022E82.txt $${EPOCROOT}epoc32/release/winscw/urel/z/private/10202BE9/20022E82.txt"
 }
 index.path = .
 index.commands = $$THEMEINDEXER -f $$OUT_PWD/src/$${NAME}.txt

@@ -1,41 +1,38 @@
+# ============================================================================
+#  Name        : makeindex.mk
+#  Part of     : Hb
+#  Description : Hb make index wrapper
+#  Version     : %version: 3 %
 #
-# Copyright (c) 2008-2010 Nokia Corporation and/or its subsidiary(-ies).
-# All rights reserved.
-# This component and the accompanying materials are made available
-# under the terms of "Eclipse Public License v1.0"
-# which accompanies this distribution, and is available
-# at the URL "http://www.eclipse.org/legal/epl-v10.html".
-#
-# Initial Contributors:
-# Nokia Corporation - initial contribution.
-#
-# Contributors:
-#
-# Description:  Hb make index wrapper
-#
+#  Copyright (c) 2008-2010 Nokia.  All rights reserved.
+#  This material, including documentation and any related computer
+#  programs, is protected by copyright controlled by Nokia.  All
+#  rights are reserved.  Copying, including reproducing, storing,
+#  adapting or translating, any or all of this material requires the
+#  prior written consent of Nokia.  This material also contains
+#  confidential information which may not be disclosed to others
+#  without the prior written consent of Nokia.
+# ============================================================================
 
 MAKE = make
 
-do_nothing :
-	echo do_nothing
+MAKMAKE :
 
-MAKMAKE : do_nothing
-
-RESOURCE : do_nothing
-
-SAVESPACE : do_nothing
-
-BLD : do_nothing
-
-FREEZE : do_nothing
-
-LIB : do_nothing
-
-CLEANLIB : do_nothing
-
-FINAL :
+RESOURCE :
 	-$(MAKE) index
 
-CLEAN : do_nothing
+SAVESPACE :
 
-RELEASABLES : do_nothing
+BLD :
+
+FREEZE :
+
+LIB :
+
+CLEANLIB :
+
+FINAL :
+
+CLEAN :
+
+RELEASABLES :
