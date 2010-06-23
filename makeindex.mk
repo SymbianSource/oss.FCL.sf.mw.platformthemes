@@ -2,7 +2,7 @@
 #  Name        : makeindex.mk
 #  Part of     : Hb
 #  Description : Hb make index wrapper
-#  Version     : %version: 3 %
+#  Version     : %version: 5 %
 #
 #  Copyright (c) 2008-2010 Nokia.  All rights reserved.
 #  This material, including documentation and any related computer

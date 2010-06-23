@@ -21,10 +21,10 @@ qtc_default_popup_highlight:#FFFFFF;
 qtc_default_popup_disabled:#9B9B9B;
 
 /* Title pane */
-qtc_title_pane_normal:#FFFFFF;
+qtc_title_pane_normal:#3C3C3C; /* Modified 26.05.2010 */
 qtc_title_pane_pressed:#FFFFFF;
 qtc_title_pane_highlight:#FFFFFF;
-qtc_title_pane_latched:#FFFFFF;
+qtc_title_pane_latched:#000000; /* Modified 26.05.2010 */
 qtc_title_pane_trans_normal:#FFFFFF;
 qtc_title_pane_trans_pressed:#FFFFFF;
 qtc_title_pane_trans_highlight:#FFFFFF;
@@ -42,11 +42,6 @@ qtc_view_separator_normal:#9B9B9B;
 
 /* Main area - View title */
 qtc_viewtitle_normal:#3C3C3C;
-
-/* Main area - Tab */
-qtc_tab_active_normal:#3C3C3C;
-qtc_tab_passive_normal:#3C3C3C;
-qtc_tab_passive_Pressed:#3C3C3C;
 
 /* Main area - Grid */ 
 qtc_grid_normal:#595B5D;

@@ -43,11 +43,6 @@ qtc_view_separator_normal:#9B9B9B;
 /* Main area - View title */
 qtc_viewtitle_normal:#E6E6E6;
 
-/* Main area - Tab */ 
-qtc_tab_active_normal:#FFFFFF;
-qtc_tab_passive_normal:#FFFFFF;
-qtc_tab_passive_Pressed:#FFFFFF;
-
 /* Main area - Grid */ 
 qtc_grid_normal:#DCDCDC;
 qtc_grid_pressed:#FFFFFF;
