@@ -39,6 +39,7 @@ qtc_view_line_normal:#FFFFFF;
 qtc_view_link_normal:#33C8FF;
 qtc_view_visited_normal:#B378FF;
 qtc_view_separator_normal:#9B9B9B;
+qtc_view_normal_secondary:#FFFFFF;
 
 /* Main area - View title */
 qtc_viewtitle_normal:#E6E6E6;
@@ -82,8 +83,8 @@ qtc_combobox_edit:#4D4D4D;
 qtc_combobox_latched:#FFFFFF; /* Added 05.02.2010 */
 
 /* Tumbler */
-qtc_tumbler_normal:#FFFFFF;
-qtc_tumbler_selected:#FFFFFF;
+qtc_tumbler_normal:#3C3C3C;
+qtc_tumbler_selected:#3C3C3C;
 qtc_tumbler_highlight:#FFFFFF;
 
 /* Main area - DataForm */

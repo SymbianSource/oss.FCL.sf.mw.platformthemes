@@ -34,8 +34,10 @@ qtc_callhandling_reject_highlight:#FFFFFF; /* Added 05.02.2010 */
 
 /* Application specific - Home screen */ 
 qtc_hs_list_item_title_normal:#505050; /* Added 05.02.2010 */
+qtc_hs_list_title2_normal:#3C3C3C;
 qtc_hs_list_item_content_normal:#519FB9; /* Added 05.02.2010 */
 qtc_hs_list_item_pressed:#FFFFFF; /* Added 05.02.2010 */
+qtc_hs_list_item_latched:#FFFFFF;
 qtc_hs_list_item_highlight:#FFFFFF; /* Added 05.02.2010 */
 qtc_hs_badge:#FFFFFF; /* Added 01.03.2010 */
 qtc_hs_cal:#3C3C3C; /* Added 18.03.2010 */
@@ -49,7 +51,7 @@ qtc_radio_tuner_normal:#505050; /* Added 05.02.2010 */
 qtc_radio_tuner_line:#3C3C3C; /* Added 05.02.2010 */
 
 /* Application specific - Multimedia */ 
-qtc_multimedia_trans:#FFFFFF; /* Modified 19.02.2010 */
+qtc_multimedia_trans_normal:#FFFFFF; /* Modified 02.06.2010 */
 qtc_multimedia_trans_pressed:#FFFFFF; /* Added 19.02.2010 */
 qtc_multimedia_trans_disabled:#787878; /* Added 09.03.2010 */
 
