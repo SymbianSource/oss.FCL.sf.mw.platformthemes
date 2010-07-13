@@ -23,6 +23,7 @@ import fnmatch
 import zipfile
 import optparse
 import posixpath
+import ConfigParser
 
 # ============================================================================
 # Globals
@@ -97,21 +98,27 @@ class Theme:
         self.files = {}
         self.archives = {}
 
+    def add_file(self, filepath):
+        if self._include(filepath):
+            filepath = filepath.replace("\\", "/")
+            path = os.path.split(filepath)[0]
+            extension = os.path.splitext(filepath)[1]
+            if extension == ".zip":
+                if path not in self.archives:
+                    self.archives[path] = list()
+                if filepath not in self.archives[path]:
+                    self.archives[path].append(filepath)
+            else:
+                if path not in self.files:
+                    self.files[path] = list()
+                if filepath not in self.files[path]:
+                    self.files[path].append(filepath)
+
     def initialize(self):
         for path in self.paths:
             for root, dirs, files in os.walk(path):
                 for file in files:
-                    filepath = posixpath.join(root, file).replace("\\", "/")
-                    if self._include(filepath):
-                        extension = os.path.splitext(filepath)[1]
-                        if extension == ".zip":
-                            if root not in self.archives:
-                                self.archives[root] = list()
-                            self.archives[root].append(filepath)
-                        else:
-                            if root not in self.files:
-                                self.files[root] = list()
-                            self.files[root].append(filepath)
+                    self.add_file(os.path.join(root, file))
 
     def write_iby(self, ibypath):
         global SOURCE_PREFIX, TARGET_PREFIX, EXIT_STATUS
@@ -153,6 +160,36 @@ class Theme:
         out.write("#endif __%s_IBY__\n" % self.name.upper())
         out.close()
 
+    def write_thx(self, thxpath):
+        global SOURCE_PREFIX, TARGET_PREFIX, EXIT_STATUS
+        outpath = os.path.dirname(thxpath)
+        if not os.path.exists(outpath):
+            os.makedirs(outpath)
+        archive = zipfile.ZipFile(thxpath, "w")
+        os.chdir(INPUT_DIR)
+        written_entries = list()
+        for path, files in self.files.iteritems():
+            relpath = os.path.relpath(path, INPUT_DIR).replace("\\", "/")
+            for filepath in files:
+                filename = os.path.basename(filepath)
+                entry = posixpath.join(relpath, filename)
+                if entry not in written_entries:
+                    written_entries.append(entry)
+                    archive.write(entry)
+                else:
+                    print "ERROR: %s duplicate entry %s" % (thxpath, entry)
+                    EXIT_STATUS = -1
+        archive.close()
+
+    def hidden(self):
+        result = False
+        config = ConfigParser.ConfigParser()
+        indexthemepath = INPUT_DIR + '/icons/' + self.name + '/index.theme'
+        if os.path.exists(indexthemepath):
+            config.read(indexthemepath)
+            result = config.getboolean('Icon Theme', 'Hidden')
+        return result
+
     def _include(self, filepath):
         result = True
         if INCLUDE != None:
@@ -179,6 +216,10 @@ def lookup_themes(path):
                         if theme not in themes:
                             themes[theme] = Theme(theme)
                         themes[theme].paths.append(themepath)
+                        # special case: themeindex
+                        themeindex = os.path.join(path, theme + ".themeindex")
+                        if os.path.exists(themeindex):
+                            themes[theme].add_file(themeindex)
     return themes
 
 # ============================================================================
@@ -208,8 +249,12 @@ def main():
     themes = lookup_themes(INPUT_DIR)
     for name, theme in themes.iteritems():
         theme.initialize()
-        print "Generating: %s.iby" % name
-        theme.write_iby(posixpath.join(OUTPUT_DIR, "%s.iby" % name))
+        if theme.hidden():
+            print "Generating: %s.iby" % name
+            theme.write_iby(posixpath.join(OUTPUT_DIR, "%s.iby" % name))
+        else:
+            print "Generating: %s.thx" % name
+            theme.write_thx(posixpath.join(OUTPUT_DIR, "%s.thx" % name))
 
     return EXIT_STATUS
 

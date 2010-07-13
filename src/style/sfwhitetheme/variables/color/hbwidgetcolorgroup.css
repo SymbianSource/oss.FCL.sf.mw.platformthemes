@@ -13,7 +13,7 @@ qtc_default_main_pane_normal:#8C8C96;
 qtc_default_main_pane_pressed:#3F89A9;
 qtc_default_main_pane_latched:#009CEF;
 qtc_default_main_pane_highlight:#B27200;
-qtc_default_main_pane_disabled:#595B5D; 
+qtc_default_main_pane_disabled:#9B9B9B; 
 qtc_default_popup_normal:#505050;
 qtc_default_popup_pressed:#FFFFFF;
 qtc_default_popup_latched:#FFFFFF;
@@ -33,9 +33,9 @@ qtc_status_pane:#FFFFFF; /* Added 05.02.2010 */
 qtc_status_pane_trans:#FFFFFF; /* Added 05.02.2010 */
 
 /* Main area - View */
-qtc_view_normal:#FFFFFF;
-qtc_view_pressed:#FFFFFF;
-qtc_view_line_normal:#FFFFFF;
+qtc_view_normal:#000000;
+qtc_view_pressed:#505050;
+qtc_view_line_normal:#A0A0A0;
 qtc_view_link_normal:#33C8FF;
 qtc_view_visited_normal:#B378FF;
 qtc_view_separator_normal:#9B9B9B;
@@ -88,8 +88,8 @@ qtc_tumbler_selected:#FFFFFF;
 qtc_tumbler_highlight:#FFFFFF;
 
 /* Main area - DataForm */
-qtc_dataform_heading:#3C3C3C; /* Added 04.03.2010 */
-qtc_dataform_heading_link:#33C8FF; /* Added 22.03.2010 */
+qtc_dataform_heading:#FFFFFF; /* Modified 10.06.2010 */
+qtc_dataform_heading_link:#8CE0FF; /* Modified 10.06.2010 */
 
 /* Main area - ProgressSlider */
 qtc_progslider_normal:#3C3C3C; /* Added 09.02.2010 */

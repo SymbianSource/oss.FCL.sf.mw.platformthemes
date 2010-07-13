@@ -23,6 +23,8 @@ qtc_cal_day_preview_heading:#FFFFFF; /* Added 05.02.2010 */
 qtc_cal_day_preview_text:#FFFFFF; /* Added 05.02.2010 */
 qtc_cal_day_hour_lines:#505050; /* Added 05.02.2010 */
 qtc_cal_monthgrid_title:#FFFFFF; /* Added 05.02.2010 */
+qtc_cal_meeting:#000000; /* Added 14.06.2010 */
+qtc_cal_view_text:#000000; /* Added 14.06.2010 */
 
 /* Application specific - Call handling */ 
 qtc_callhandling_answer_normal:#FFFFFF; /* Added 05.02.2010 */
@@ -57,5 +59,8 @@ qtc_multimedia_trans_disabled:#787878; /* Added 09.03.2010 */
 
 /* Application specific - Messaging */ 
 qtc_messaging_char_count:#FFFFFF; /* Added 19.04.2010 */
+
+/* Screensaver */
+qtc_screensaver:#FFFFFF; /* Added 16.06.2010 */
 }
 

@@ -36,6 +36,9 @@ EXCLUDE += --exclude \"*/distribution.policy.s60\"
 }
 HB_THEMES_DIR = $$HB_THEMES_DIR/themes
 
+# ============================================================================
+# determine dir separators & /dev/null
+# ============================================================================
 win32:!win32-g++ {
     unixstyle = false
 } else:symbian:isEmpty(QMAKE_SH) {
@@ -80,15 +83,15 @@ THEMEINDEXER = hbthemeindexer
         error(\'$$THEMEINDEXER\' must be in PATH.)
     }
 }
-ARGS = -s $$OUT_PWD/tmp/src -t $$OUT_PWD/tmp
+ARGS = -s $$OUT_PWD/tmp/src -t $$OUT_PWD/tmp/src
 !system($$THEMEINDEXER $$ARGS) {
     error(*** $$THEMEINDEXER reported an error. Stop.)
 }
 
 index.path = $$(HB_THEMES_DIR)/themes
-index.files = $$OUT_PWD/tmp/*.themeindex
+index.files = $$OUT_PWD/tmp/src/*.themeindex
 INSTALLS += index
-QMAKE_CLEAN += $$OUT_PWD/tmp/*.themeindex
+QMAKE_CLEAN += $$OUT_PWD/tmp/src/*.themeindex
 
 # ============================================================================
 # generate installs.pri
@@ -98,7 +101,6 @@ ARGS = --input $$OUT_PWD/tmp/src --output $$OUT_PWD/tmp $$EXCLUDE
     error(*** bin/installs.py reported an error. Stop.)
 }
 isEmpty(QMAKE_UNZIP):QMAKE_UNZIP = unzip -u -o
-include($$OUT_PWD/tmp/installs.pri)
 QMAKE_DISTCLEAN += $$OUT_PWD/tmp/installs.pri
 
 # ============================================================================
@@ -110,6 +112,7 @@ symbian {
         error(*** bin/rom.py reported an error. Stop.)
     }
     QMAKE_CLEAN += $$OUT_PWD/tmp/*.iby
+    QMAKE_CLEAN += $$OUT_PWD/tmp/*.thx
 }
 
 # ============================================================================
@@ -140,13 +143,11 @@ symbian {
         return(true)
     }
     exportThemeFiles($$files($$OUT_PWD/tmp/*.iby), $$CORE_MW_LAYER_IBY_EXPORT_PATH())
-    exportThemeFiles($$files($$OUT_PWD/tmp/*.themeindex), $${EPOCROOT}epoc32/data/z/resource/hb/themes/)
-    exportThemeFiles($$files($$OUT_PWD/tmp/*.themeindex), $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/)
+    exportThemeFiles($$files($$OUT_PWD/tmp/*.thx), $${EPOCROOT}epoc32/data/z/resource/hb/themes/)
+    exportThemeFiles($$files($$OUT_PWD/tmp/src/*.themeindex), $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/)
 
-    # configuration files - exporting removed from platformthemes
-#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/confml/hbtheme.confml            MW_LAYER_CONFML(hbtheme.confml)
-#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/implml/hbtheme_20022e82.crml     MW_LAYER_CRML(hbtheme_20022e82.crml)
-#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/implml/hbtheme.implml            MW_LAYER_CRML(hbtheme.implml)
+    # configuration files
+    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/platformthemes.confml            MW_LAYER_CONFML(platformthemes.confml)
 
 } else {
     exists(src/theme.theme) {
@@ -166,3 +167,4 @@ symbian {
 }
 
 message(Run \'make install\')
+include($$OUT_PWD/tmp/installs.pri)
