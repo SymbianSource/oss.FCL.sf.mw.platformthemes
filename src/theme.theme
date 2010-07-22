@@ -1,2 +1,3 @@
-[Default Theme]
-Name=hbdefault
+[Default]
+BaseTheme = sfwhitetheme
+DefaultActiveTheme = sfblacktheme

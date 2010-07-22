@@ -39,21 +39,17 @@ qtc_view_line_normal:#FFFFFF;
 qtc_view_link_normal:#33C8FF;
 qtc_view_visited_normal:#B378FF;
 qtc_view_separator_normal:#9B9B9B;
+qtc_view_normal_secondary:#FFFFFF;
 
 /* Main area - View title */
 qtc_viewtitle_normal:#E6E6E6;
-
-/* Main area - Tab */ 
-qtc_tab_active_normal:#FFFFFF;
-qtc_tab_passive_normal:#FFFFFF;
-qtc_tab_passive_Pressed:#FFFFFF;
 
 /* Main area - Grid */ 
 qtc_grid_normal:#DCDCDC;
 qtc_grid_pressed:#FFFFFF;
 qtc_grid_highlight:#FFFFFF;
 qtc_grid_latched:#FFFFFF; /* Added 05.02.2010 */
-qtg_grid_disabled:#9B9B9B; /* Added 15.02.2010 */
+qtc_grid_disabled:#9B9B9B; /* Modified 01.03.2010 */
 
 /* Main area - List */ 
 qtc_list_item_title_normal:#FFFFFF; /* Modified 19.02.2010 */
@@ -87,12 +83,13 @@ qtc_combobox_edit:#4D4D4D;
 qtc_combobox_latched:#FFFFFF; /* Added 05.02.2010 */
 
 /* Tumbler */
-qtc_tumbler_normal:#FFFFFF;
-qtc_tumbler_selected:#FFFFFF;
+qtc_tumbler_normal:#3C3C3C;
+qtc_tumbler_selected:#3C3C3C;
 qtc_tumbler_highlight:#FFFFFF;
 
 /* Main area - DataForm */
-qtc_dataform_value:#FFFFFF; /* Added 08.02.2010 */
+qtc_dataform_heading:#FFFFFF; /* Added 04.03.2010 */
+qtc_dataform_heading_link:#33C8FF; /* Added 22.03.2010 */
 
 /* Main area - ProgressSlider */
 qtc_progslider_normal:#FFFFFF; /* Added 09.02.2010 */
@@ -147,7 +144,6 @@ qtc_popup_grid_highlight:#FFFFFF;
 qtc_popup_grid_disabled:#9B9B9B;
 qtc_popup_grid_latched:#FFFFFF; /* Added 05.02.2010 */
 qtc_popup_grid_trans_normal:#FFFFFF; /* Added 05.02.2010 */
-qtc_popup_grid_trans_pressed:#FFFFFF; /* Added 05.02.2010 */
 
 /* Pop-ups - List in a pop-up */ 
 qtc_popup_list_title_normal:#FFFFFF;
@@ -157,6 +153,7 @@ qtc_popup_list_item_pressed:#FFFFFF;
 qtc_popup_list_item_highlight:#FFFFFF;
 qtc_popup_list_item_disabled:#9B9B9B;
 qtc_popup_list_item_latched:#FFFFFF; /* Added 05.02.2010 */
+qtc_popup_list_item_trans_normal:#FFFFFF; /* Added 12.02.2010 */
 
 /* Virtual inputs */ 
 qtc_input_button_normal:#FFFFFF; /* Modified 19.02.2010 */
@@ -169,7 +166,7 @@ qtc_input_function_pressed:#FFFFFF; /* Modified 19.02.2010 */
 qtc_input_function_latched:#FFFFFF; /* Modified 19.02.2010 */
 qtc_input_function_disabled:#9B9B9B; /* Modified 19.02.2010 */
 qtc_input_preview_normal:#FFFFFF; /* Modified 22.02.2010 */
-
-
+qtc_input_hint_normal:#F0F0F0; /* Added 05.03.2010 */
+qtc_input_grid_line:#9B9B9B; /* Added 12.03.2010 */
 }
 

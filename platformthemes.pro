@@ -1,21 +1,29 @@
 #
-# Copyright (c) 2008-2010 Nokia Corporation and/or its subsidiary(-ies).
-# All rights reserved.
-# This component and the accompanying materials are made available
-# under the terms of "Eclipse Public License v1.0"
-# which accompanies this distribution, and is available
-# at the URL "http://www.eclipse.org/legal/epl-v10.html".
+# ============================================================================
+#  Name        : platformthemes.pro
+#  Part of     : platformthemes
+#  Description : Project definition file for project platformthemes
+#  Version     : %version: %
 #
-# Initial Contributors:
-# Nokia Corporation - initial contribution.
-#
-# Contributors:
-#
-# Description:  Project definition file for project platformthemes
+#  Copyright (c) 2008-2010 Nokia.  All rights reserved.
+#  This material, including documentation and any related computer
+#  programs, is protected by copyright controlled by Nokia.  All
+#  rights are reserved.  Copying, including reproducing, storing,
+#  adapting or translating, any or all of this material requires the
+#  prior written consent of Nokia.  This material also contains
+#  confidential information which may not be disclosed to others
+#  without the prior written consent of Nokia.
+# ============================================================================
 #
 
 NAME = platformthemes
 TEMPLATE = subdirs
+EXCLUDE += --exclude \"*.orig\"
+EXCLUDE += --exclude \"*/distribution.policy.s60\"
+
+# ============================================================================
+# determine HB_THEMES_DIR
+# ============================================================================
 !symbian {
     HB_THEMES_DIR = $$(HB_THEMES_DIR)
     isEmpty(HB_THEMES_DIR) {
@@ -24,55 +32,137 @@ TEMPLATE = subdirs
         error(HB_THEMES_DIR environment variable is not set. ($$ENV_HELP))
     }
 } else {
-    ARGS += --symbian
-    nvg:ARGS += --nvg
-    no_nvg:ARGS += --no-nvg
+    HB_THEMES_DIR = $${EPOCROOT}epoc32/data/z/resource/hb
 }
-ARGS += -v --input $$IN_PWD/src --output $$OUT_PWD/src --name $$NAME
-ARGS += --exclude \"*distribution.policy.s60\"
-!system(python $$IN_PWD/bin/sync.py $$ARGS) {
-    error(*** bin/sync.py reported an error. Stop.)
-}
+HB_THEMES_DIR = $$HB_THEMES_DIR/themes
 
-*symbian* {
-    THEMEINDEXER = bin\themeindexer_symbian.exe
+win32:!win32-g++ {
+    unixstyle = false
+} else:symbian:isEmpty(QMAKE_SH) {
+    unixstyle = false
+} else:win32-g++:isEmpty(QMAKE_SH) {
+    unixstyle = false
 } else {
+    unixstyle = true
+}
 
-    win32:!win32-g++ {
-        unixstyle = false
-    } else:win32-g++:isEmpty(QMAKE_SH) {
-        unixstyle = false
-    } else {
-        unixstyle = true
+# ============================================================================
+# extract archives
+# ============================================================================
+ARGS = --input src --output $$OUT_PWD/tmp/src $$EXCLUDE
+!system(python bin/extract.py $$ARGS) {
+    error(*** bin/extract.py reported an error. Stop.)
+}
+
+# ============================================================================
+# convert svg->nvg
+# ============================================================================
+symbian {
+    nvg|!no_nvg {
+        ARGS = --input $$OUT_PWD/tmp/src/icons
+        !system(python bin/svg2nvg.py $$ARGS) {
+            error(*** bin/svg2nvg.py reported an error. Stop.)
+        }
     }
+}
 
+# ============================================================================
+# theme indexing target
+# ============================================================================
+THEMEINDEXER = hbthemeindexer
+!symbian {
     $$unixstyle {
         DEVNULL = /dev/null
     } else {
         DEVNULL = nul
     }
-    THEMEINDEXER = themeindexer
     !system($$THEMEINDEXER > $$DEVNULL 2>&1) {
-        error('themeindexer' must be in PATH.)
+        error(\'$$THEMEINDEXER\' must be in PATH.)
+    }
+}
+ARGS = -s $$OUT_PWD/tmp/src -t $$OUT_PWD/tmp
+!system($$THEMEINDEXER $$ARGS) {
+    error(*** $$THEMEINDEXER reported an error. Stop.)
+}
+
+index.path = $$(HB_THEMES_DIR)/themes
+index.files = $$OUT_PWD/tmp/*.themeindex
+INSTALLS += index
+QMAKE_CLEAN += $$OUT_PWD/tmp/*.themeindex
+
+# ============================================================================
+# generate installs.pri
+# ============================================================================
+ARGS = --input $$OUT_PWD/tmp/src --output $$OUT_PWD/tmp $$EXCLUDE
+!system(python bin/installs.py $$ARGS) {
+    error(*** bin/installs.py reported an error. Stop.)
+}
+isEmpty(QMAKE_UNZIP):QMAKE_UNZIP = unzip -u -o
+include($$OUT_PWD/tmp/installs.pri)
+QMAKE_DISTCLEAN += $$OUT_PWD/tmp/installs.pri
+
+# ============================================================================
+# generate rom files
+# ============================================================================
+symbian {
+    ARGS = --input $$OUT_PWD/tmp/src --output $$OUT_PWD/tmp $$EXCLUDE
+    !system(python bin/rom.py $$ARGS) {
+        error(*** bin/rom.py reported an error. Stop.)
+    }
+    QMAKE_CLEAN += $$OUT_PWD/tmp/*.iby
+}
+
+# ============================================================================
+# installs/exports
+# ============================================================================
+symbian {
+
+    # theme exports
+    exists(src/theme.theme) {
+        BLD_INF_RULES.prj_exports += "src/theme.theme $${EPOCROOT}epoc32/data/z/resource/hb/themes/"
+        BLD_INF_RULES.prj_exports += "src/theme.theme $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/"
+    }
+    exists(rom/theme.theme.iby) {
+        BLD_INF_RULES.prj_exports += "rom/theme.theme.iby $$CORE_MW_LAYER_IBY_EXPORT_PATH(theme.theme.iby)"
+    }
+
+    # params: <files> <target>
+    defineTest(exportThemeFiles) {
+        files = $$1
+        target = $$2
+        for(file, files) {
+            # strip possible drive letter
+            file = $$split(file, :)
+            file = $$last(file)
+            BLD_INF_RULES.prj_exports += "$$file $$target"
+        }
+        export(BLD_INF_RULES.prj_exports)
+        return(true)
+    }
+    exportThemeFiles($$files($$OUT_PWD/tmp/*.iby), $$CORE_MW_LAYER_IBY_EXPORT_PATH())
+    exportThemeFiles($$files($$OUT_PWD/tmp/*.themeindex), $${EPOCROOT}epoc32/data/z/resource/hb/themes/)
+    exportThemeFiles($$files($$OUT_PWD/tmp/*.themeindex), $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/)
+
+    # configuration files - exporting removed from platformthemes
+#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/confml/hbtheme.confml            MW_LAYER_CONFML(hbtheme.confml)
+#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/implml/hbtheme_20022e82.crml     MW_LAYER_CRML(hbtheme_20022e82.crml)
+#    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/implml/hbtheme.implml            MW_LAYER_CRML(hbtheme.implml)
+
+} else {
+    exists(src/theme.theme) {
+        theme.theme.path = $$(HB_THEMES_DIR)/themes
+        theme.theme.files += src/theme.theme
+        INSTALLS += theme.theme
     }
 }
 
-*symbian* {
-    # NOTE: temporarily disabled due to:
-    #       "Qt: INTERNALL ERROR: failed to install GetMessage hook"
-    # BLD_INF_RULES.prj_mmpfiles += "gnumakefile makeindex.mk"
-
-    install.depends = default
+# ============================================================================
+# NOTE: qmake/s60 does not support INSTALLS
+# ============================================================================
+symbian {
+    install.depends += export
     uninstall.depends = cleanexport
     QMAKE_EXTRA_TARGETS += install uninstall
 }
-index.path = .
-index.commands = $$THEMEINDEXER -f $$OUT_PWD/src/$${NAME}.txt
-QMAKE_EXTRA_TARGETS += index
 
 message(Run \'make install\')
-
-include($$OUT_PWD/src/$${NAME}.pri)
-
-# NOTE: must be after .pri include above!
-INSTALLS += index

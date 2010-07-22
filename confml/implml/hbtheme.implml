@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://www.symbianfoundation.org/xml/implml/1">
+
+<container> 
+    <phase name="pre"/> 
+    <tag name="target" value="rofs3"/> 
+
+    <ruleml xmlns="http://www.s60.com/xml/ruleml/3">
+        <rule>
+            ${HbTheme.UIThemeFile} configures ${HbTheme.HbDefaultTheme} = {% get_themename_from_thx( ${HbTheme.UIThemeFile}, 'themes' ) %}
+        </rule>
+        <rule>
+            ${HbTheme.PriorityThemeFile} configures ${HbTheme.HbPriorityThemeName} = {% get_themename_from_thx( ${HbTheme.PriorityThemeFile}, 'prioritytheme' ) %}
+        </rule>
+        <eval_globals>
+
+import sys, zipfile, os, os.path
+import tempfile
+import shutil
+    
+def get_themename_from_thx(file, themesfolder):
+    ret = None
+
+    outdir = get_output_folder()
+    outdir = os.path.join(outdir, 'resource')
+    if not os.path.exists(outdir):    
+        os.mkdir(outdir)
+    outdir = os.path.join(outdir, 'hb')
+    if not os.path.exists(outdir):    
+        os.mkdir(outdir)
+    outdir = os.path.join(outdir, themesfolder)
+    if not os.path.exists(outdir):    
+        os.mkdir(outdir)
+    unzip_file_into_dir(file, outdir)
+    
+    # Get filesnames in outdir
+    files_in_dir = os.listdir(outdir)
+    
+    # Search for themeindex file
+    for fn in files_in_dir:
+        if os.path.splitext(fn)[1] == '.themeindex':
+            ret = os.path.splitext(fn)[0]
+        
+    return ret
+        
+def unzip_file_into_dir(file, dir):
+    """
+    Unzips file into given folder.
+    """
+
+    zfobj = zipfile.ZipFile(file,'r')
+    for name in zfobj.namelist():
+        if name.endswith('/'):        
+            os.mkdir(os.path.join(dir, name))
+        else:
+            outfile = open(os.path.join(dir, name), 'wb')
+            outfile.write(zfobj.read(name))
+            outfile.close()
+
+def get_output_folder():
+    output = ruleml.context.output
+    output = os.path.join(output, 'content')
+    if not os.path.exists(output):
+        os.mkdir(output)
+
+    return output
+
+        </eval_globals>
+    
+    </ruleml>
+</container>
+
+<container>
+    <phase name="normal"/>
+    <tag name="target" value="rofs3"/> 
+
+    <content xmlns="http://www.s60.com/xml/content/2">
+        <output dir="">
+            <input dir="content"/>
+        </output>
+    </content>
+</container>
+
+</container>
