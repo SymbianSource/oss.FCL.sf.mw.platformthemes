@@ -84,7 +84,7 @@ def write_pri(filepath, input_dir):
                 target = make_target(root)
                 relpath = os.path.relpath(root, input_dir).replace("\\", "/")
                 if os.path.splitext(file)[1] == ".zip":
-                    out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/data/z/resource/hb/themes/%s/\"\n" % (filepath, relpath)) 
+                    out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/data/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
                     out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/%s/\"\n" % (filepath, relpath))
                     out.write("!isEmpty(%s.commands): %s.commands += &&\n" % (target, target))
                     out.write("%s.commands += $$QMAKE_UNZIP %s -d $$(HB_THEMES_DIR)/themes/%s\n" % (target, filepath, relpath))
@@ -97,6 +97,7 @@ def write_pri(filepath, input_dir):
                     out.write("%s.path = $$(HB_THEMES_DIR)/themes/%s\n" % (target, relpath))
                     out.write("INSTALLS += %s\n" % target)
                     roots.append(root)
+                out.write("QMAKE_CLEAN += %s\n" % filepath)
     out.close()
     return 0
 

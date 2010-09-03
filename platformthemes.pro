@@ -52,7 +52,7 @@ win32:!win32-g++ {
 # ============================================================================
 # extract archives
 # ============================================================================
-ARGS = --input src --output $$OUT_PWD/tmp/src $$EXCLUDE
+ARGS = --input src --output $$OUT_PWD/tmp/src $$EXCLUDE --clean
 !system(python bin/extract.py $$ARGS) {
     error(*** bin/extract.py reported an error. Stop.)
 }
@@ -101,7 +101,7 @@ ARGS = --input $$OUT_PWD/tmp/src --output $$OUT_PWD/tmp $$EXCLUDE
     error(*** bin/installs.py reported an error. Stop.)
 }
 isEmpty(QMAKE_UNZIP):QMAKE_UNZIP = unzip -u -o
-QMAKE_DISTCLEAN += $$OUT_PWD/tmp/installs.pri
+QMAKE_CLEAN += $$OUT_PWD/tmp/installs.pri
 
 # ============================================================================
 # generate rom files

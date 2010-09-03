@@ -33,6 +33,7 @@ INPUT_DIR = os.getcwd()
 OUTPUT_DIR = os.getcwd()
 INCLUDE = None
 EXCLUDE = None
+CLEAN = False
 
 # ============================================================================
 # OptionParser
@@ -52,6 +53,8 @@ class OptionParser(optparse.OptionParser):
                         help="specify the include <pattern> (default %s)" % INCLUDE)
         self.add_option("--exclude", dest="exclude", action="append", metavar="pattern",
                         help="specify the exclude <pattern> (default %s)" % EXCLUDE)
+        self.add_option("--clean", dest="clean", action="store_true",
+                        help="clean intermediate files in the output directory")
 
 # ============================================================================
 # Utils
@@ -105,7 +108,7 @@ def include_exclude(filepath):
 # main()
 # ============================================================================
 def main():
-    global VERBOSE, INPUT_DIR, OUTPUT_DIR, INCLUDE, EXCLUDE
+    global VERBOSE, INPUT_DIR, OUTPUT_DIR, INCLUDE, EXCLUDE, CLEAN
 
     parser = OptionParser()
     (options, args) = parser.parse_args()
@@ -120,12 +123,16 @@ def main():
         INCLUDE = options.include
     if options.exclude != None:
         EXCLUDE = options.exclude
+    if options.clean != None:
+        CLEAN = options.clean
 
     extracted = 0
     copied = 0
     omitted = 0
     workpath = None
     newline = False
+    if CLEAN:
+        shutil.rmtree(OUTPUT_DIR, ignore_errors=True)
     sys.stdout.write("Processing: ")
     for root, dirs, files in os.walk(INPUT_DIR):
         for file in files:
