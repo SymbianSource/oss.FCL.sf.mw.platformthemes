@@ -39,7 +39,7 @@ qtc_view_line_normal:#A0A0A0;
 qtc_view_link_normal:#33C8FF;
 qtc_view_visited_normal:#B378FF;
 qtc_view_separator_normal:#9B9B9B;
-qtc_view_normal_secondary:#FFFFFF;
+qtc_view_normal_secondary:#519FB9; /* Modified 26.08.2010 */
 
 /* Main area - View title */
 qtc_viewtitle_normal:#3C3C3C;
@@ -73,6 +73,7 @@ qtc_lineedit_normal:#505050;
 qtc_lineedit_selected:#FFFFFF;
 qtc_lineedit_marker_normal:#505050;
 qtc_lineedit_hint_normal:#A0A0A0;
+qtc_lineedit_cursor:#519FB9; /* Added 25.08.2010 */
 
 /* Combobox */ 
 qtc_combobox_normal:#3C3C3C;
@@ -100,6 +101,7 @@ qtc_textedit_normal:#505050;
 qtc_textedit_selected:#FFFFFF;
 qtc_textedit_marker_normal:#505050;
 qtc_textedit_hint_normal:#A0A0A0;
+qtc_textedit_cursor:#519FB9; /* Added 25.08.2010 */
 
 /* Main area - Toolbar */
 qtc_toolbar_normal:#3C3C3C;
