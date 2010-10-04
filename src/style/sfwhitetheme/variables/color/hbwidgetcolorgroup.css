@@ -53,7 +53,9 @@ qtc_grid_disabled:#9B9B9B; /* Modified 01.03.2010 */
 
 /* Main area - List */ 
 qtc_list_item_title_normal:#505050;
+qtc_list_item_title_secondary_normal:#3C3C3C; /* Added 02.09.2010 */
 qtc_list_item_content_normal:#519FB9;
+qtc_list_item_content_secondary_normal:#505050; /* Added 02.09.2010 */
 qtc_list_item_parent_normal:#505050;
 qtc_list_item_pressed:#FFFFFF;
 qtc_list_item_highlight:#FFFFFF;
@@ -131,7 +133,7 @@ qtc_popup_link:#8CE0FF; /* Added 16.02.2010 */
 
 /* Pop-ups - Preview pop-up */
 qtc_popup_preview_normal:#FFFFFF;
-qtc_popup_preview_pressed:#FFFFFF;
+qtc_popup_preview_pressed:#519FB9;
 qtc_popup_preview_link:#8CE0FF;
 
 /* Pop-ups - Transparent pop-up */

@@ -53,7 +53,9 @@ qtc_grid_disabled:#9B9B9B; /* Modified 01.03.2010 */
 
 /* Main area - List */ 
 qtc_list_item_title_normal:#FFFFFF; /* Modified 19.02.2010 */
+qtc_list_item_title_secondary_normal:#F0F0F0; /* Added 02.09.2010 */
 qtc_list_item_content_normal:#F0F0F0;
+qtc_list_item_content_secondary_normal:#B5B5B5; /* Added 02.09.2010 */
 qtc_list_item_parent_normal:#F0F0F0;
 qtc_list_item_pressed:#FFFFFF;
 qtc_list_item_highlight:#FFFFFF;

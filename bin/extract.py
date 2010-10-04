@@ -87,7 +87,7 @@ def extract(archive):
         outfile = os.path.join(outpath, name)
         # overwrite only if different size
         if not os.path.exists(outfile) or os.path.getsize(outfile) != len(data):
-            file = open(outfile, "w")
+            file = open(outfile, "wb")
             file.write(data)
             file.close()
 

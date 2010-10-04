@@ -7,10 +7,13 @@
 qtc_conv_list_received_normal:#B5B5B5; /* Modified 05.02.2010 */
 qtc_conv_list_received_pressed:#B5B5B5; /* Modified 05.02.2010 */
 qtc_conv_list_received_highlight:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_timestamp_received_normal:#FFFFFF; /* Added 02.09.2010 */
 qtc_conv_list_sent_normal:#B5B5B5; /* Modified 05.02.2010 */
 qtc_conv_list_sent_pressed:#B5B5B5; /* Modified 05.02.2010 */
 qtc_conv_list_sent_highlight:#FFFFFF; /* Modified 05.02.2010 */
+qtc_conv_list_timestamp_sent_normal:#FFFFFF; /* Added 02.09.2010 */
 qtc_conv_list_dimmed:#9B9B9B; /* Added 26.03.2010 */
+
 
 /* Application specific - Calendar */ 
 qtc_cal_grid_line:#8E8E8E; /* Added 05.02.2010 */

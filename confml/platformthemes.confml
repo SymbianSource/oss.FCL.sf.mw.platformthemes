@@ -11,6 +11,10 @@
         <ThemeName>sfwhitetheme</ThemeName>
         <ThxPath>\epoc32\data\z\resource\hb\themes\sfwhitetheme.thx</ThxPath>
       </AvailableThemes>
+      <AvailableThemes>
+        <ThemeName>glasstheme.thx</ThemeName>
+        <ThxPath>\epoc32\data\z\resource\hb\themes\glasstheme.thx</ThxPath>
+      </AvailableThemes>
     </HbTheme>
   </data>
 </configuration>
