@@ -83,12 +83,12 @@ qtc_combobox_pressed:#FFFFFF;
 qtc_combobox_highlight:#3C3C3C;
 qtc_combobox_disabled:#787878;
 qtc_combobox_edit:#3C3C3C;
-qtc_combobox_latched:#FFFFFF; /* Added 05.02.2010 */
+qtc_combobox_latched:#3C3C3C; /* Modified 30.09.2010 */
 
 /* Tumbler */
 qtc_tumbler_normal:#3C3C3C;
-qtc_tumbler_selected:#FFFFFF;
-qtc_tumbler_highlight:#FFFFFF;
+qtc_tumbler_selected:#000000;/* Modified 27.09.2010 */
+qtc_tumbler_highlight:#000000;/* Modified 27.09.2010 */
 
 /* Main area - DataForm */
 qtc_dataform_heading:#FFFFFF; /* Modified 10.06.2010 */

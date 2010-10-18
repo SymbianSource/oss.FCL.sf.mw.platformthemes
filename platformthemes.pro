@@ -123,7 +123,8 @@ symbian {
     # theme exports
     exists(src/theme.theme) {
         BLD_INF_RULES.prj_exports += "src/theme.theme $${EPOCROOT}epoc32/data/z/resource/hb/themes/"
-        BLD_INF_RULES.prj_exports += "src/theme.theme $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/"
+        BLD_INF_RULES.prj_exports += "src/theme.theme $${EPOCROOT}epoc32/release/winscw/urel/z/resource/hb/themes/"
+        BLD_INF_RULES.prj_exports += "src/theme.theme $${EPOCROOT}epoc32/release/winscw/udeb/z/resource/hb/themes/"
     }
     exists(rom/theme.theme.iby) {
         BLD_INF_RULES.prj_exports += "rom/theme.theme.iby $$CORE_MW_LAYER_IBY_EXPORT_PATH(theme.theme.iby)"
@@ -144,10 +145,11 @@ symbian {
     }
     exportThemeFiles($$files($$OUT_PWD/tmp/*.iby), $$CORE_MW_LAYER_IBY_EXPORT_PATH())
     exportThemeFiles($$files($$OUT_PWD/tmp/*.thx), $${EPOCROOT}epoc32/data/z/resource/hb/themes/)
-    exportThemeFiles($$files($$OUT_PWD/tmp/src/*.themeindex), $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/)
+    exportThemeFiles($$files($$OUT_PWD/tmp/src/*.themeindex), $${EPOCROOT}epoc32/release/winscw/urel/z/resource/hb/themes/)
+    exportThemeFiles($$files($$OUT_PWD/tmp/src/*.themeindex), $${EPOCROOT}epoc32/release/winscw/udeb/z/resource/hb/themes/)
 
     # configuration files
-    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/platformthemes.confml            MW_LAYER_CONFML(platformthemes.confml)
+    BLD_INF_RULES.prj_exports += "$$section(PWD, ":", 1)/confml/$${NAME}.confml            MW_LAYER_CONFML($${NAME}.confml)
 
 } else {
     exists(src/theme.theme) {

@@ -85,12 +85,14 @@ def write_pri(filepath, input_dir):
                 relpath = os.path.relpath(root, input_dir).replace("\\", "/")
                 if os.path.splitext(file)[1] == ".zip":
                     out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/data/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
-                    out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/%s/\"\n" % (filepath, relpath))
+                    out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/release/winscw/urel/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
+                    out.write("symbian:BLD_INF_RULES.prj_exports += \":zip %s $${EPOCROOT}epoc32/release/winscw/udeb/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
                     out.write("!isEmpty(%s.commands): %s.commands += &&\n" % (target, target))
                     out.write("%s.commands += $$QMAKE_UNZIP %s -d $$(HB_THEMES_DIR)/themes/%s\n" % (target, filepath, relpath))
                 else:
                     out.write("symbian:BLD_INF_RULES.prj_exports += \"%s $${EPOCROOT}epoc32/data/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
-                    out.write("symbian:BLD_INF_RULES.prj_exports += \"%s $${EPOCROOT}epoc32/winscw/c/resource/hb/themes/%s/\"\n" % (filepath, relpath))
+                    out.write("symbian:BLD_INF_RULES.prj_exports += \"%s $${EPOCROOT}epoc32/release/winscw/urel/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
+                    out.write("symbian:BLD_INF_RULES.prj_exports += \"%s $${EPOCROOT}epoc32/release/winscw/udeb/z/resource/hb/themes/%s/\"\n" % (filepath, relpath))
                     out.write("%s.files += %s\n" % (target, filepath))
                 if root not in roots:
                     out.write("%s.CONFIG += no_build\n" % target)

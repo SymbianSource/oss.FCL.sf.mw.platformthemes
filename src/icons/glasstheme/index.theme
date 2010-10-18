@@ -2,7 +2,7 @@
 Name=Glass
 Comment=Glass Dark
 Hidden=false
-Directories=scalable
+Directories=scalable,pixmap
 PreviewIconPath_prt=/scalable/qtg_graf_theme_preview_prt.svg
 PreviewIconPath_lsc=/scalable/qtg_graf_theme_preview_lsc.svg
 PreviewThumbnailPath=/scalable/qtg_graf_theme_preview_thumbnail.svg
